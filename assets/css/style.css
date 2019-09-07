@@ -140,3 +140,10 @@ body {
     background-color: lightblue!important;
     text-align: center!important;
 }
+
+
+/* Hide the answers in my html:*/
+
+p {
+    display: none;
+}
