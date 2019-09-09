@@ -13,96 +13,107 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
 </head>
-<!--  when the page is loaded, will call the startTimer() function located in your javascript-->
 
-<body onLoad="startTimer()">
+<body>
     <header>
         <h1>Trivia Game</h1>
     </header>
     <div>
+        <div id="wrapper">
 
-        <h2><span id="timer">00:00</span></h2>
-        </br>
-        <h4>Are these statements true or false?</h4>
-        </br>
-        <h6>Number 1:<span id="1"></span></h6>
-        <h4>The capital of Latvia is Riga:</h4>
-        <p class="true"> True </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            <div id="display">00:00</div>
+
+            <!-- Div containing our stopwatch controls -->
+            <div id="buttons">
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="reset">Reset</button>
+                <button id="lap">Lap</button>
+            </div>
+
+            <div id="laps"></div>
+            <!--<h2><span id="timer">00:00</span></h2>-->
+            </br>
+            <h4>Are these statements true or false?</h4>
+            </br>
+            <h6>Number 1:<span id="1"></span></h6>
+            <h4>The capital of Latvia is Riga:</h4>
+            <p class="true"> True </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
+            <h6>Number 2:<span id="2"></span></h6>
+            <h4>Whales are considered as fish:</h4>
+            <p class="false"> False </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
+            <h6>Number 3:<span id="3"></span></h6>
+            <h4>The largest ocean is the Pacific Ocean:</h4>
+            <p class="true"> True </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
+            <h6>Number 4:<span id="3"></span></h6>
+            <h4>The French Revolution took place in 1798:</h4>
+            <p class="false"> False </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
+            <h6>Number 5:<span id="3"></span></h6>
+            <h4>The Statue of Liberty was designed by Bartholdi, a French sculptor:</h4>
+            <p class="true"> True </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
+            <h6>Number 6:<span id="3"></span></h6>
+            <h4>The Kilimanjaro is located in Tanzania:</h4>
+            <p class="true"> True </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
+            <h6>Number 7:<span id="3"></span></h6>
+            <h4>"Choucroute garnie" is a famouse pastry:</h4>
+            <p class="false"> False </p>
+            <div class="logo">
+                <button type="button" class="btn btn-success" id=trueButton>True</button>
+                <button type="button" class="btn btn-danger" id=falseButton>False</button>
+            </div>
+            </br>
+
         </div>
-        </br>
 
-        <h6>Number 2:<span id="2"></span></h6>
-        <h4>Whales are considered as fish:</h4>
-        <p class="false"> False </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
+        <div>Total of correct answers:
+            <h2 id="totalCorrectAnswers"></h2>
         </div>
-        </br>
-
-        <h6>Number 3:<span id="3"></span></h6>
-        <h4>The largest ocean is the Pacific Ocean:</h4>
-        <p class="true"> True </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
+        <div>Total of uncorrect answers:
+            <h2 id="totalUncorrectAnswers"></h2>
         </div>
-        </br>
+        <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-        <h6>Number 4:<span id="3"></span></h6>
-        <h4>The French Revolution took place in 1798:</h4>
-        <p class="false"> False </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
-        </div>
-        </br>
-
-        <h6>Number 5:<span id="3"></span></h6>
-        <h4>The Statue of Liberty was designed by Bartholdi, a French sculptor:</h4>
-        <p class="true"> True </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
-        </div>
-        </br>
-
-        <h6>Number 6:<span id="3"></span></h6>
-        <h4>The Kilimanjaro is located in Tanzania:</h4>
-        <p class="true"> True </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
-        </div>
-        </br>
-
-        <h6>Number 7:<span id="3"></span></h6>
-        <h4>"Choucroute garnie" is a famouse pastry:</h4>
-        <p class="false"> False </p>
-        <div class="logo">
-            <button type="button" class="btn btn-success" id=trueButton>True</button>
-            <button type="button" class="btn btn-danger" id=falseButton>False</button>
-        </div>
-        </br>
-
-    </div>
-
-    <h2>Number of correct answers:
-        <h2><span id="correctAnswers"></span></h2>
-
-        <h2>Number of uncorrect answers:
-            <h2><span id="correctAnswers"></span></h2>
-
-            <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-            <!-- Java script's link -->
-            <script type="text/javascript" src="assets/javascript/game.js"></script>
-            <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Java script's link -->
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+        <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>
